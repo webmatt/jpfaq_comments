@@ -1,0 +1,63 @@
+/*
+***********************************************************
+Title: jpfaq.css
+Author: Jacco van der Post - www.TYPO3-webdesign.nl
+Date: may 2011
+***********************************************************
+*/
+
+.tx-jpfaq-pi1 fieldset {
+    margin-bottom:10px;
+}
+
+.tx-jpfaq-pi1 legend {
+    display:none;
+}
+
+.tx-jpfaq-pi1 label {
+    font-weight: bold;
+}
+
+.tx-jpfaq-pi1 ul {
+    margin:0;
+    padding:0;
+    padding-bottom:10px;
+}
+
+
+.tx-jpfaq-pi1 li {
+    list-style: none;
+    margin:0;
+    padding:0;
+    margin-bottom:10px;
+
+}
+
+.tx-jpfaq-pi1 li h3 {
+    background: url('../Img/plus.png') no-repeat left center;
+    padding-left:20px;
+    margin-bottom:3px;
+}
+
+.tx-jpfaq-pi1 li h3.questionUnfolded  {
+    background: url('../Img/min.png') no-repeat left center;
+}
+
+.tx-jpfaq-pi1 li h3 {
+    cursor:pointer;
+}
+
+.tx-jpfaq-pi1 .jpfaqAll {
+    margin-bottom:10px;
+}
+
+.tx-jpfaq-pi1 .jpfaqShowAll,
+.tx-jpfaq-pi1 .jpfaqHideAll {
+   background: url('../Img/all_plus.png') no-repeat left center;
+   padding-left:20px;
+   cursor:pointer;
+}
+
+.tx-jpfaq-pi1 .jpfaqHideAll {
+   background: url('../Img/all_min.png') no-repeat left center;
+}

@@ -1,0 +1,45 @@
+plugin.tx_jpfaqcomments {
+	view {
+		templateRootPath = {$plugin.tx_jpfaqcomments.view.templateRootPath}
+		partialRootPath = {$plugin.tx_jpfaqcomments.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_jpfaqcomments.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_jpfaqcomments.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+	includeCss {
+		file1.path = EXT:Resources/Public/Css/jpfaq.css
+		file1.mediatype = all
+	}
+	includeJquery.path = EXT:Resources/Public/Js/jquery152.min.js
+	includeQuicksearch.path = EXT:Resources/Public/Js/quicksearch.js
+}
+
+#plugin.tx_jpfaqcomments._CSS_DEFAULT_STYLE (
+#	textarea.f3-form-error {
+#		background-color:#FF9F9F;
+#		border: 1px #FF0000 solid;
+#	}
+#
+#	input.f3-form-error {
+#		background-color:#FF9F9F;
+#		border: 1px #FF0000 solid;
+#	}
+#
+#	.tx-jpfaq-comments table {
+#		border-collapse:separate;
+#		border-spacing:10px;
+#	}
+#
+#	.tx-jpfaq-comments table th {
+#		font-weight:bold;
+#	}
+#
+#	.tx-jpfaq-comments table td {
+#		vertical-align:top;
+#	}
+#)

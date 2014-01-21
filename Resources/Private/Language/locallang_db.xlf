@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-01-21T02:01:18Z" product-name="jpfaq_comments">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_jpfaqcomments_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_category.category">
+				<source>Category</source>
+			</trans-unit>
+
+			<trans-unit id="tx_jpfaqcomments_domain_model_question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.answer">
+				<source>Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.category">
+				<source>Category</source>
+			</trans-unit>
+
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment">
+				<source>Comment</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.comment">
+				<source>Comment</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.user">
+				<source>User</source>
+			</trans-unit>
+
+			<trans-unit id="tx_jpfaqcomments.conf">
+				<source>Configuration</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments.selectPid">
+				<source>Choose page or folder with records</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments.selectCategory">
+				<source>Choose category</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments.showSearch">
+				<source>Show searchbox (searches all questions on page)</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

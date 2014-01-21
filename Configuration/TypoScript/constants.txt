@@ -1,0 +1,14 @@
+plugin.tx_jpfaqcomments {
+	view {
+		# cat=plugin.tx_jpfaqcomments/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:jpfaq_comments/Resources/Private/Templates/
+		# cat=plugin.tx_jpfaqcomments/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:jpfaq_comments/Resources/Private/Partials/
+		# cat=plugin.tx_jpfaqcomments/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:jpfaq_comments/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_jpfaqcomments//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}

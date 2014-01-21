@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-01-21T02:01:18Z" product-name="jpfaq_comments">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_jpfaqcomments_domain_model_category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_category.category">
+				<source>category</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_jpfaqcomments_domain_model_question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.question">
+				<source>question</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.answer">
+				<source>answer</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.category">
+				<source>category</source>
+			</trans-unit>
+			
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment">
+				<source>Comment</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.comment">
+				<source>comment</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.question">
+				<source>question</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.user">
+				<source>user</source>
+			</trans-unit>
+
+			<trans-unit id="tx_jpfaqcomments.showAll">
+				<source>Show all answers</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments.hideAll">
+				<source>Hide all answers</source>
+			</trans-unit>
+			
+		</body>
+	</file>
+</xliff>
