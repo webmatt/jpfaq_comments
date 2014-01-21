@@ -10,7 +10,7 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <settings.selectPid>
+                    <settings.flexform.selectPid>
                         <TCEforms>
                             <exclude>1</exclude>
                             <label>LLL:EXT:jpfag_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments.selectPid</label>
@@ -25,8 +25,8 @@
                                 <eval>required</eval>
                             </config>
                         </TCEforms>
-                    </settings.selectPid>
-                    <settings.showSearch>
+                    </settings.flexform.selectPid>
+                    <settings.flexform.showSearch>
                         <TCEforms>
                             <exclude>1</exclude>
                             <label>LLL:EXT:jpfag_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments.showSearch</label>
@@ -35,8 +35,8 @@
                                 <default>0</default>
                             </config>
                         </TCEforms>
-                    </settings.showSearch>
-                    <settings.selectCategory>
+                    </settings.flexform.showSearch>
+                    <settings.flexform.selectCategory>
                         <TCEforms>
                             <exclude>1</exclude>
                             <label>LLL:EXT:jpfag_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments.selectCategory</label>
@@ -51,7 +51,7 @@
                                 <maxitems>1</maxitems>
                             </config>
                         </TCEforms>
-                    </settings.selectCategory>
+                    </settings.flexform.selectCategory>
                 </el>
             </ROOT>
         </sDEF>
