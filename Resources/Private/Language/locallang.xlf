@@ -43,6 +43,12 @@
 			<trans-unit id="tx_jpfaqcomments.hideAll">
 				<source>Hide all answers</source>
 			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments.searchboxLegend">
+				<source>Quick search FAQ</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments.searchboxLabel">
+				<source>Quick search FAQ</source>
+			</trans-unit>
 			
 		</body>
 	</file>

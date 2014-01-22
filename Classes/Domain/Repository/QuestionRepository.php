@@ -51,7 +51,7 @@ class QuestionRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 		$query->getQuerySettings()->setRespectStoragePage(FALSE);
 		if ($categoryUID)
 		{
-			$query->matching($query->logicalAnd($query->contains('category', $categoryUID), $query->equals('pid', $pid));
+			$query->matching($query->logicalAnd($query->contains('category', $categoryUID), $query->equals('pid', $pid)));
 		}
 		else
 		{

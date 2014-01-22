@@ -11,12 +11,14 @@ plugin.tx_jpfaqcomments {
 		# uncomment the following line to enable the new Property Mapper.
 		# rewrittenPropertyMapper = 1
 	}
-	includeCss {
-		file1.path = EXT:Resources/Public/Css/jpfaq.css
-		file1.mediatype = all
+	settings {
+		includeCss {
+			file1.path = EXT:Resources/Public/Css/jpfaq.css
+			file1.mediatype = all
+		}
+		includeJquery.path = EXT:Resources/Public/Js/jquery152.min.js
+		includeQuicksearch.path = EXT:Resources/Public/Js/quicksearch.js
 	}
-	includeJquery.path = EXT:Resources/Public/Js/jquery152.min.js
-	includeQuicksearch.path = EXT:Resources/Public/Js/quicksearch.js
 }
 
 #plugin.tx_jpfaqcomments._CSS_DEFAULT_STYLE (

@@ -85,7 +85,7 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		// If t3jquery is loaded and the custom library has been created
 		if (T3JQUERY === true)
 		{
-			tx_t3jquery::addJqJS();
+			\tx_t3jquery::addJqJS();
 		}
 		else
 		{
@@ -122,6 +122,7 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		{
 			$GLOBALS['TSFE']->getPageRenderer()->addJsFooterFile($GLOBALS['TSFE']->tmpl->getFileName($pathIncludeQuicksearch), $type = 'text/javascript', $compress = TRUE, $forceOnTop = FALSE, $allWrap = '');
 		}
+		error_log(json_encode($this->settings));
 	}
 
 	/**
