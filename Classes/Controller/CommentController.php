@@ -42,5 +42,38 @@ class CommentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	 */
 	protected $commentRepository;
 
+	/**
+	 * action list
+	 *
+	 * @return void
+	 */
+	public function listAction() {
+		$comments = $this->commentRepository->findAll();
+		$this->view->assign('comments', $comments);
+	}
+
+	/**
+	 * action new
+	 *
+	 * @param \Comnerds\JpfaqComments\Domain\Model\Comment $newComment
+	 * @dontvalidate $newComment
+	 * @return void
+	 */
+	public function newAction(\Comnerds\JpfaqComments\Domain\Model\Comment $newComment = NULL) {
+		$this->view->assign('newComment', $newComment);
+	}
+
+	/**
+	 * action create
+	 *
+	 * @param \Comnerds\JpfaqComments\Domain\Model\Comment $newComment
+	 * @return void
+	 */
+	public function createAction(\Comnerds\JpfaqComments\Domain\Model\Comment $newComment) {
+		$this->commentRepository->add($newComment);
+		$this->flashMessageContainer->add('Your new Comment was created.');
+		$this->redirect('list');
+	}
+
 }
 ?>
