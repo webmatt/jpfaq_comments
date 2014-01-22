@@ -49,6 +49,7 @@ CREATE TABLE tx_jpfaqcomments_domain_model_question (
 	question varchar(255) DEFAULT '' NOT NULL,
 	answer varchar(255) DEFAULT '' NOT NULL,
 	category int(11) unsigned DEFAULT '0' NOT NULL,
+	comments int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

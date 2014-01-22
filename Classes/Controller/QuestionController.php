@@ -122,7 +122,6 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		{
 			$GLOBALS['TSFE']->getPageRenderer()->addJsFooterFile($GLOBALS['TSFE']->tmpl->getFileName($pathIncludeQuicksearch), $type = 'text/javascript', $compress = TRUE, $forceOnTop = FALSE, $allWrap = '');
 		}
-		error_log(json_encode($this->settings));
 	}
 
 	/**
@@ -143,40 +142,13 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		$this->view->assign('categoryUid', $selectedCategory);
 
 		//set fold / unfold js
-		$js = <<<HEREDOC
-		$(document).ready(function(){
-			jQuery('.jpfaqHide$selectedCategory').hide();
-			jQuery('ul.listCategory$selectedCategory .toggleTrigger').next().hide();
-			jQuery('ul.listCategory$selectedCategory .toggleTrigger').click(function(){
-				jQuery(this).next().toggleClass("active").slideToggle('fast');
-				jQuery(this).toggleClass("questionUnfolded");
-				if (jQuery(".tx-jpfaq-pi1 ul.listCategory$selectedCategory li").children(':first-child').length == jQuery(".tx-jpfaq-pi1 ul.listCategory$selectedCategory li").children(':first-child.questionUnfolded').length) {
-					jQuery('.jpfaqShow$selectedCategory').hide();
-					jQuery('.jpfaqHide$selectedCategory').show();
-				} else {
-					jQuery('.jpfaqHide$selectedCategory').hide();
-					jQuery('.jpfaqShow$selectedCategory').show();
-				}
-			});
-			jQuery('.jpfaqShow$selectedCategory').click(function(){
-				jQuery('.toggleTriggerContainer$selectedCategory').removeClass("active");
-				jQuery('.toggleTriggerContainer$selectedCategory').addClass("active").slideDown('fast');
-				jQuery('ul.listCategory$selectedCategory .toggleTrigger').removeClass("questionUnfolded");
-				jQuery('ul.listCategory$selectedCategory .toggleTrigger').addClass("questionUnfolded");
-				jQuery('.jpfaqShow$selectedCategory').hide();
-				jQuery('.jpfaqHide$selectedCategory').show();
-			});
-			jQuery('.jpfaqHide$selectedCategory').click(function(){
-				jQuery('.toggleTriggerContainer$selectedCategory').removeClass("active").slideUp('fast');
-				jQuery('ul.listCategory$selectedCategory .toggleTrigger').removeClass("questionUnfolded");
-				jQuery('.jpfaqHide$selectedCategory').hide();
-				jQuery('.jpfaqShow$selectedCategory').show();
-			});
-		});
-HEREDOC;
+		$js = "var jpfaqCategory = $selectedCategory";
 
 		//load dynamic js in footer
 		$GLOBALS['TSFE']->getPageRenderer()->addJsFooterInlineCode($this->extKey . ' ' . $categoryName, $js, $compress = TRUE, $forceOnTop = FALSE);
+
+		$jspath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath($this->request->getControllerExtensionKey()) . 'Resources/Public/Js/jpfaqcomments.js';
+		$GLOBALS['TSFE']->getPageRenderer()->addJsFooterFile($GLOBALS['TSFE']->tmpl->getFileName($jspath), $type = 'text/javascript', $compress = TRUE, $forceOnTop = FALSE, $allWrap = '');
 
 	}
 

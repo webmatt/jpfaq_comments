@@ -58,6 +58,13 @@ class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $category;
 
 	/**
+	 * comments
+	 *
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Comnerds\JpfaqComments\Domain\Model\Comment>
+	 */
+	protected $comments;
+
+	/**
 	 * __construct
 	 *
 	 * @return Question
@@ -79,6 +86,7 @@ class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		 * You may modify the constructor of this class instead
 		 */
 		$this->category = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+		$this->comments = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -156,6 +164,45 @@ class Question extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setCategory(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $category) {
 		$this->category = $category;
+	}
+
+	/**
+	 * Adds a Comment
+	 *
+	 * @param \Comnerds\JpfaqComments\Domain\Model\Comment $comment
+	 * @return void
+	 */
+	public function addComments(\Comnerds\JpfaqComments\Domain\Model\Comment $comment) {
+		$this->comments->attach($comment);
+	}
+
+	/**
+	 * Removes a Comment
+	 *
+	 * @param \Comnerds\JpfaqComments\Domain\Model\Comment $commentToRemove The Comment to be removed
+	 * @return void
+	 */
+	public function removeComments(\Comnerds\JpfaqComments\Domain\Model\Comment $commentToRemove) {
+		$this->comments->detach($commentToRemove);
+	}
+
+	/**
+	 * Returns the comments
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Comnerds\JpfaqComments\Domain\Model\Comment> $comments
+	 */
+	public function getComments() {
+		return $this->comments;
+	}
+
+	/**
+	 * Sets the comments
+	 *
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Comnerds\JpfaqComments\Domain\Model\Comment> $comments
+	 * @return void
+	 */
+	public function setComments(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $comments) {
+		$this->comments = $comments;
 	}
 
 }

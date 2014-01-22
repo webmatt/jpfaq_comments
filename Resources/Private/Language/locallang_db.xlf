@@ -23,6 +23,9 @@
 			<trans-unit id="tx_jpfaqcomments_domain_model_question.category">
 				<source>Category</source>
 			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.comments">
+				<source>Comments</source>
+			</trans-unit>
 
 			<trans-unit id="tx_jpfaqcomments_domain_model_comment">
 				<source>Comment</source>

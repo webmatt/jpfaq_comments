@@ -1,16 +1,5 @@
 <f:layout name="Default" />
 
-This Template is responsible for creating a table of domain objects.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="main">
 
   <f:flashMessages />
@@ -20,16 +9,25 @@ Otherwise your changes will be overwritten the next time you save the extension 
   <h2 class="jpfaqCategory">{category}</h2>
 
   <div class="jpfaqAll">
-    <div class="jpfaqShowAll jpfaqShow{categoryUid}"><f:translate key="tx_jpfaqcomments.showAll" /></div>
-    <div class="jpfaqHideAll jpfaqHide{categoryUid}"><f:translate key="tx_jpfaqcomments.hideAll" /></div>
+    <div class="jpfaqShowAll jpfaqShow{categoryUid}"><f:translate key="tx_jpfaqcomments.showAnswers" /></div>
+    <div class="jpfaqHideAll jpfaqHide{categoryUid}"><f:translate key="tx_jpfaqcomments.hideAnswers" /></div>
   </div>
 
   <ul class="listCategory{categoryUid}">
     <f:for each="{questions}" as="question">
       <li>
-	<h3 class="toggleTrigger">{question.question}</h3>
-	<div class="toggleTriggerContainer{categoryUid}">
+	<h3 class="toggleQuestionTrigger">{question.question}</h3>
+	<div class="toggleQuestionTriggerContainer{categoryUid}">
 	  <div class="jpfaqAnswer"><f:format.html>{question.answer}</f:format.html></div>
+	<div class="showCommentsTrigger"><f:translate key="tx_jpfaqcomments.showComments" /> (<f:count subject="{question.comments}" />)</div>
+	  <div class="hideCommentsTrigger"><f:translate key="tx_jpfaqcomments.hideComments" /></div>
+	  <div class="commentContainer">
+	    <ul class="listComments">
+	      <f:for each="{question.comments}" as="comment">
+		<div class="jpfaqComment">{comment.comment}</div>
+	      </f:for>
+	    </ul>
+	  </div>
 	</div>
       </li>
     </f:for>

@@ -37,11 +37,17 @@
 				<source>user</source>
 			</trans-unit>
 
-			<trans-unit id="tx_jpfaqcomments.showAll">
+			<trans-unit id="tx_jpfaqcomments.showAnswers">
 				<source>Show all answers</source>
 			</trans-unit>
-			<trans-unit id="tx_jpfaqcomments.hideAll">
+			<trans-unit id="tx_jpfaqcomments.hideAnswers">
 				<source>Hide all answers</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments.showComments">
+				<source>Show comments</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments.hideComments">
+				<source>Hide comments</source>
 			</trans-unit>
 			<trans-unit id="tx_jpfaqcomments.searchboxLegend">
 				<source>Quick search FAQ</source>

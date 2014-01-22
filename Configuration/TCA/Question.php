@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jpfaqcomments_domain_model_question'] = array(
 	'ctrl' => $TCA['tx_jpfaqcomments_domain_model_question']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'question, answer, category',
+		'showRecordFieldList' => 'question, answer, comments, category',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'question, answer, category'),
+		'1' => array('showitem' => 'question, answer, comments, category'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -109,6 +109,23 @@ $TCA['tx_jpfaqcomments_domain_model_question'] = array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim,required'
+			),
+		),
+		'comments' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:jpfaq_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments_domain_model_question.comments',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_jpfaqcomments_domain_model_comment',
+				'foreign_field' => 'question',
+				'maxitems' => 9999,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationLink' => 1,
+					'showAllLocalizationLink' => 1
+				),
 			),
 		),
 		'category' => array(
