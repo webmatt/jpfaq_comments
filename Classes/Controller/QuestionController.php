@@ -216,7 +216,7 @@ EOJ;
 						$c->setImage($fileObject->getUid());
 					}
 					$this->commentRepository->add($c);
-					$this->cacheService->clearPageCache($flexformPid);
+					$this->cacheService->clearPageCache($GLOBALS['TSFE']->id);
 				}
 			}
 		}
