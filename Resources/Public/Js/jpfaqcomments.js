@@ -31,36 +31,43 @@ function eraseCookie(name) {
     createCookie(name, "", -1);
 }
 
-$(document).ready(function(){
+$(document).ready(function() {
 
-    // Questions logic
-    jQuery('.jpfaqHide' + jpfaqCategory).hide();
-    jQuery('ul.listCategory' + jpfaqCategory + ' .toggleQuestionTrigger').next().hide();
-    jQuery('ul.listCategory' + jpfaqCategory + ' .toggleQuestionTrigger').click(function(){
-        jQuery(this).next().toggleClass('active').slideToggle('fast');
-        jQuery(this).toggleClass('questionUnfolded');
-        if (jQuery('.tx-jpfaq-pi1 ul.listCategory' + jpfaqCategory + ' li').children(':first-child').length == jQuery('.tx-jpfaq-pi1 ul.listCategory' + jpfaqCategory + ' li').children(':first-child.questionUnfolded').length) {
-            jQuery('.jpfaqShow' + jpfaqCategory).hide();
-            jQuery('.jpfaqHide' + jpfaqCategory).show();
-        } else {
-            jQuery('.jpfaqHide' + jpfaqCategory).hide();
-            jQuery('.jpfaqShow' + jpfaqCategory).show();
-        }
-    });
-    jQuery('.jpfaqShow' + jpfaqCategory).click(function(){
-        jQuery('.toggleQuestionTriggerContainer' + jpfaqCategory).removeClass('active');
-        jQuery('.toggleQuestionTriggerContainer' + jpfaqCategory).addClass('active').slideDown('fast');
-        jQuery('ul.listCategory' + jpfaqCategory + ' .toggleQuestionTrigger').removeClass('questionUnfolded');
-        jQuery('ul.listCategory' + jpfaqCategory + ' .toggleQuestionTrigger').addClass('questionUnfolded');
-        jQuery('.jpfaqShow' + jpfaqCategory).hide();
-        jQuery('.jpfaqHide' + jpfaqCategory).show();
-    });
-    jQuery('.jpfaqHide' + jpfaqCategory).click(function(){
-        jQuery('.toggleQuestionTriggerContainer' + jpfaqCategory).removeClass('active').slideUp('fast');
-        jQuery('ul.listCategory' + jpfaqCategory + ' .toggleQuestionTrigger').removeClass('questionUnfolded');
+    for (var i = 0; i < jpfaqCategories.length; i++)
+    {
+        jpfaqCategory = jpfaqCategories[i];
+        // Questions logic
         jQuery('.jpfaqHide' + jpfaqCategory).hide();
-        jQuery('.jpfaqShow' + jpfaqCategory).show();
-    });
+        jQuery('ul.listCategory' + jpfaqCategory + ' .toggleQuestionTrigger').next().hide();
+        jQuery('ul.listCategory' + jpfaqCategory + ' .toggleQuestionTrigger').click({ cat: jpfaqCategory }, function(evt){
+            var cat = evt.data.cat;
+            jQuery(this).next().toggleClass('active').slideToggle('fast');
+            jQuery(this).toggleClass('questionUnfolded');
+            if (jQuery('.tx-jpfaq-pi1 ul.listCategory' + cat + ' li').children(':first-child').length == jQuery('.tx-jpfaq-pi1 ul.listCategory' + cat + ' li').children(':first-child.questionUnfolded').length) {
+                jQuery('.jpfaqShow' + cat).hide();
+                jQuery('.jpfaqHide' + cat).show();
+            } else {
+                jQuery('.jpfaqHide' + cat).hide();
+                jQuery('.jpfaqShow' + cat).show();
+            }
+        });
+        jQuery('.jpfaqShow' + jpfaqCategory).click({ cat: jpfaqCategory }, function(evt){
+            var cat = evt.data.cat;
+            jQuery('.toggleQuestionTriggerContainer' + cat).removeClass('active');
+            jQuery('.toggleQuestionTriggerContainer' + cat).addClass('active').slideDown('fast');
+            jQuery('ul.listCategory' + cat + ' .toggleQuestionTrigger').removeClass('questionUnfolded');
+            jQuery('ul.listCategory' + cat + ' .toggleQuestionTrigger').addClass('questionUnfolded');
+            jQuery('.jpfaqShow' + cat).hide();
+            jQuery('.jpfaqHide' + cat).show();
+        });
+        jQuery('.jpfaqHide' + jpfaqCategory).click({ cat: jpfaqCategory }, function(evt){
+            var cat = evt.data.cat;
+            jQuery('.toggleQuestionTriggerContainer' + cat).removeClass('active').slideUp('fast');
+            jQuery('ul.listCategory' + cat + ' .toggleQuestionTrigger').removeClass('questionUnfolded');
+            jQuery('.jpfaqHide' + cat).hide();
+            jQuery('.jpfaqShow' + cat).show();
+        });
+    }
 
     // Comments logic
     jQuery('.hideCommentsTrigger').hide();
@@ -78,11 +85,11 @@ $(document).ready(function(){
         jqthis.hide();
     });
 
-    if (typeof jpfaqQid !== 'undefined')
+    if (typeof jpfaqQid != 'undefined')
     {
-        var question = jQuery('.toggleQuestionTrigger' + jpfaqQid);
+        var question = jQuery('.toggleQuestionTrigger' + jpfaqQid).first();
         question.click();
-        var comment = question.siblings('.toggleQuestionTriggerContainer').children('.showCommentsTrigger');
+        var comment = question.siblings('.toggleQuestionTriggerContainer').first().children('.showCommentsTrigger').first();
         comment.click();
         jQuery('html').animate({ scrollTop: (question.offset().top - 50)}, 500);
     }

@@ -103,7 +103,7 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 			}
 		}
 
-		$GLOBALS["TSFE"]->additionalHeaderData[$this->extKey] = $includes;
+		$GLOBALS["TSFE"]->additionalHeaderData[$this->request->getControllerExtensionKey()] = $includes;
 
 		// check if extension t3query is loaded, if not load jQuery lib
 		if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('t3jquery'))
@@ -165,9 +165,16 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 
 		//set fold / unfold js
 		$js = "var jpfaqCategory = $selectedCategory;";
+		$js = <<<EOJ
+if (typeof jpfaqCategories == 'undefined')
+{
+	jpfaqCategories = new Array();
+}		
+jpfaqCategories.push($selectedCategory);
+EOJ;
 
 		//load dynamic js in footer
-		$GLOBALS['TSFE']->getPageRenderer()->addJsFooterInlineCode($this->extKey . ' ' . $categoryName, $js, $compress = TRUE, $forceOnTop = FALSE);
+		$GLOBALS['TSFE']->getPageRenderer()->addJsFooterInlineCode($this->request->getControllerExtensionKey() . ' ' . $categoryName, $js, $compress = TRUE, $forceOnTop = FALSE);
 
 		$jspath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath($this->request->getControllerExtensionKey()) . 'Resources/Public/Js/jpfaqcomments.js';
 		$GLOBALS['TSFE']->getPageRenderer()->addJsFooterFile($GLOBALS['TSFE']->tmpl->getFileName($jspath), $type = 'text/javascript', $compress = TRUE, $forceOnTop = FALSE, $allWrap = '');
