@@ -49,6 +49,9 @@
 			<trans-unit id="tx_jpfaqcomments.hideComments">
 				<source>Hide comments</source>
 			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments.submitComment">
+				<source>Submit comment</source>
+			</trans-unit>
 			<trans-unit id="tx_jpfaqcomments.searchboxLegend">
 				<source>Quick search FAQ</source>
 			</trans-unit>

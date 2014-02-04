@@ -92,6 +92,8 @@ CREATE TABLE tx_jpfaqcomments_domain_model_comment (
 	comment varchar(255) DEFAULT '' NOT NULL,
 	question int(11) unsigned DEFAULT '0',
 	user int(11) unsigned DEFAULT '0',
+	commentdate int(11) DEFAULT '0' NOT NULL,
+	image int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -110,7 +112,6 @@ CREATE TABLE tx_jpfaqcomments_domain_model_comment (
 	t3ver_count int(11) DEFAULT '0' NOT NULL,
 	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
 	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-	sorting int(11) DEFAULT '0' NOT NULL,
 	t3_origuid int(11) DEFAULT '0' NOT NULL,
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,

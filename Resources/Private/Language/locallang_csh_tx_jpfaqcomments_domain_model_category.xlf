@@ -5,7 +5,7 @@
 		<body>
 
 			<trans-unit id="category.description">
-				<source>category</source>
+				<source>Category</source>
 			</trans-unit>
 		</body>
 	</file>

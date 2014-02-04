@@ -7,15 +7,12 @@ if (!defined('TYPO3_MODE')) {
 	'Comnerds.' . $_EXTKEY,
 	'Jpfaqcomments',
 	array(
-		'Question' => 'list',
+		'Question' => 'list, createComment',
 		
 	),
 	// non-cacheable actions
 	array(
-		'Category' => '',
-		'Question' => '',
-		'Comment' => '',
-		
+		'Question' => 'createComment',
 	)
 );
 

@@ -42,6 +42,13 @@ class Comment extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $comment;
 
 	/**
+	 * commentdate
+	 *
+	 * @var \DateTime
+	 */
+	protected $commentdate;
+
+	/**
 	 * question
 	 *
 	 * @var \Comnerds\JpfaqComments\Domain\Model\Question
@@ -54,6 +61,13 @@ class Comment extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @var \TYPO3\CMS\Extbase\Domain\Model\FrontendUser
 	 */
 	protected $user;
+
+	/**
+	 * image
+	 *
+	 * @var int
+	 */
+	protected $image;
 
 	/**
 	 * Returns the comment
@@ -72,6 +86,25 @@ class Comment extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setComment($comment) {
 		$this->comment = $comment;
+	}
+
+	/**
+	 * Returns the commentdate
+	 *
+	 * @return \DateTime $commentdate
+	 */
+	public function getCommentdate() {
+		return $this->commentdate;
+	}
+
+	/**
+	 * Sets the commentdate
+	 *
+	 * @param \DateTime $commentdate
+	 * @return void
+	 */
+	public function setCommentdate($commentdate) {
+		$this->commentdate = $commentdate;
 	}
 
 	/**
@@ -110,6 +143,27 @@ class Comment extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setUser(\TYPO3\CMS\Extbase\Domain\Model\FrontendUser $user) {
 		$this->user = $user;
+	}
+
+	/**
+	 * Returns the image
+	 *
+	 * @return int $image
+	 */
+	public function getImage()
+	{
+		return $this->image;
+	}
+
+	/**
+	 * Sets the image
+	 *
+	 * @param int $image
+	 *
+	 * @return void
+	 */
+	public function setImage($image) {
+		$this->image = $image;
 	}
 
 }

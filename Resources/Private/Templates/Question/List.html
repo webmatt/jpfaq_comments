@@ -1,3 +1,4 @@
+{namespace c=Comnerds\JpfaqComments\ViewHelpers}
 <f:layout name="Default" />
 
 <f:section name="main">
@@ -16,17 +17,32 @@
   <ul class="listCategory{categoryUid}">
     <f:for each="{questions}" as="question">
       <li>
-	<h3 class="toggleQuestionTrigger">{question.question}</h3>
-	<div class="toggleQuestionTriggerContainer{categoryUid}">
+	<h3 class="toggleQuestionTrigger toggleQuestionTrigger{question.uid}">{question.question}</h3>
+	<div class="toggleQuestionTriggerContainer toggleQuestionTriggerContainer{categoryUid}">
 	  <div class="jpfaqAnswer"><f:format.html>{question.answer}</f:format.html></div>
-	<div class="showCommentsTrigger"><f:translate key="tx_jpfaqcomments.showComments" /> (<f:count subject="{question.comments}" />)</div>
+	  <div class="showCommentsTrigger"><f:translate key="tx_jpfaqcomments.showComments" /> (<f:count subject="{question.comments}" />)</div>
 	  <div class="hideCommentsTrigger"><f:translate key="tx_jpfaqcomments.hideComments" /></div>
+	  <hr />
 	  <div class="commentContainer">
 	    <ul class="listComments">
 	      <f:for each="{question.comments}" as="comment">
-		<div class="jpfaqComment">{comment.comment}</div>
+		<div class="jpfaqComment">
+		  <c:commentUser user="{comment.user}" /> {comment.commentdate -> f:format.date()}<br />
+		{comment.comment}
+		<f:if condition="{comment.image}">
+		  <f:image src="{comment.image}" alt="" width="100" height="100" />
+		</f:if>
+		</div>
 	      </f:for>
 	    </ul>
+	    <div class="newCommentForm">
+	      <f:form action="createComment" name="createComment{question.uid}" enctype="multipart/form-data">
+		<f:form.hidden name="qid" value="{question.uid}" />
+		<f:form.textarea cols="20" rows="5" name="comment" />
+		<f:form.upload name="image" />
+		<f:form.submit value="{f:translate(key:'tx_jpfaqcomments.submitComment')}" class="btn btn-default btn-info" />
+	      </f:form>
+	    </div>
 	  </div>
 	</div>
       </li>

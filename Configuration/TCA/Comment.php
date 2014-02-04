@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jpfaqcomments_domain_model_comment'] = array(
 	'ctrl' => $TCA['tx_jpfaqcomments_domain_model_comment']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'comment, question, user',
+		'showRecordFieldList' => 'comment,question,user',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'comment, question, user'),
+		'1' => array('showitem' => 'comment,question,user'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -102,6 +102,17 @@ $TCA['tx_jpfaqcomments_domain_model_comment'] = array(
 				'eval' => 'trim'
 			),
 		),
+		'commentdate' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:jpfaq_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments_domain_model_comment.date',
+			'config' => array(
+				'type' => 'input',
+				'size' => 10,
+				'eval' => 'datetime',
+				'checkbox' => 1,
+				'default' => time()
+			),
+		),
 		'question' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:jpfaq_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments_domain_model_comment.question',
@@ -122,6 +133,18 @@ $TCA['tx_jpfaqcomments_domain_model_comment'] = array(
 				'maxitems' => 1,
 			),
 		),
+		'image' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:jpfaq_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments_domain_model_comment.image',
+			'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', 
+				array(
+					'maxitems' => 1,
+					'appearance' => array(
+						'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference',
+					),
+				), $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']),
+		),
+
 	),
 );
 

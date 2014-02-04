@@ -30,6 +30,9 @@
 			<trans-unit id="tx_jpfaqcomments_domain_model_comment">
 				<source>Comment</source>
 			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.date">
+				<source>Date</source>
+			</trans-unit>
 			<trans-unit id="tx_jpfaqcomments_domain_model_comment.comment">
 				<source>Comment</source>
 			</trans-unit>
@@ -38,6 +41,9 @@
 			</trans-unit>
 			<trans-unit id="tx_jpfaqcomments_domain_model_comment.user">
 				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.image">
+				<source>Image</source>
 			</trans-unit>
 
 			<trans-unit id="tx_jpfaqcomments.conf">

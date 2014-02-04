@@ -6,14 +6,14 @@
         <sDEF>
             <ROOT>
                 <TCEforms>
-                    <sheetTitle>LLL:EXT:jpfag_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments.conf</sheetTitle>
+                    <sheetTitle>LLL:EXT:jpfaq_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments.conf</sheetTitle>
                 </TCEforms>
                 <type>array</type>
                 <el>
                     <settings.flexform.selectPid>
                         <TCEforms>
                             <exclude>1</exclude>
-                            <label>LLL:EXT:jpfag_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments.selectPid</label>
+                            <label>LLL:EXT:jpfaq_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments.selectPid</label>
                             <config>
                                 <type>group</type>
                                 <internal_type>db</internal_type>
@@ -29,7 +29,7 @@
                     <settings.flexform.showSearch>
                         <TCEforms>
                             <exclude>1</exclude>
-                            <label>LLL:EXT:jpfag_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments.showSearch</label>
+                            <label>LLL:EXT:jpfaq_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments.showSearch</label>
                             <config>
                                 <type>check</type>
                                 <default>0</default>
@@ -39,7 +39,7 @@
                     <settings.flexform.selectCategory>
                         <TCEforms>
                             <exclude>1</exclude>
-                            <label>LLL:EXT:jpfag_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments.selectCategory</label>
+                            <label>LLL:EXT:jpfaq_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments.selectCategory</label>
                             <config>
                                 <type>select</type>
                                 <foreign_table>tx_jpfaqcomments_domain_model_category</foreign_table>

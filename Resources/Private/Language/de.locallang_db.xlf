@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-01-21T02:01:18Z" product-name="jpfaq_comments">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_jpfaqcomments_domain_model_category" approved="yes">
+				<source>Category</source> <target state="translated">Kategorie</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_category.category" approved="yes">
+				<source>Category</source> <target state="translated">Kategorie</target></trans-unit>
+
+			<trans-unit id="tx_jpfaqcomments_domain_model_question" approved="yes">
+				<source>Question</source> <target state="translated">Frage</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.question" approved="yes">
+				<source>Question</source> <target state="translated">Frage</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.answer" approved="yes">
+				<source>Answer</source> <target state="translated">Antwort</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.category" approved="yes">
+				<source>Category</source> <target state="translated">Kategorie</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.comments" approved="yes">
+				<source>Comments</source> <target state="translated">Kommentare</target></trans-unit>
+
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment" approved="yes">
+				<source>Comment</source> <target state="translated">Kommentar</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.date" approved="yes">
+				<source>Date</source> <target state="translated">Datum</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.comment" approved="yes">
+				<source>Comment</source> <target state="translated">Kommentar</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.question" approved="yes">
+				<source>Question</source> <target state="translated">Frage</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.user" approved="yes">
+				<source>User</source> <target state="translated">Benutzer</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.image" approved="yes">
+				<source>Image</source> <target state="translated">Bild</target></trans-unit>
+
+			<trans-unit id="tx_jpfaqcomments.conf" approved="yes">
+				<source>Configuration</source> <target state="translated">Konfiguration</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments.selectPid" approved="yes">
+				<source>Choose page or folder with records</source> <target state="translated">Seite oder Ordner mit Datensätzen</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments.selectCategory" approved="yes">
+				<source>Choose category</source> <target state="translated">Kategorie wählen</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments.showSearch" approved="yes">
+				<source>Show searchbox (searches all questions on page)</source> <target state="translated">Suchbox anzeigen (durchsucht alle Fragen auf der Seite)</target></trans-unit>
+
+		</body>
+	</file>
+</xliff>

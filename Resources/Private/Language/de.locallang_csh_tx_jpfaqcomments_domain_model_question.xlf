@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-01-21T02:01:18Z" product-name="jpfaq_comments">
+		<header/>
+		<body>
+
+			<trans-unit id="question.description" approved="yes">
+				<source>question</source> <target state="translated">Frage</target></trans-unit>
+			<trans-unit id="answer.description" approved="yes">
+				<source>answer</source> <target state="translated">Antwort</target></trans-unit>
+			<trans-unit id="category.description" approved="yes">
+				<source>category</source> <target state="translated">Kategorie</target></trans-unit>
+		</body>
+	</file>
+</xliff>

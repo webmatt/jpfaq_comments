@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2014-01-21T02:01:18Z" product-name="jpfaq_comments">
+		<header/>
+		<body>
+
+			<trans-unit id="tx_jpfaqcomments_domain_model_category" approved="yes">
+				<source>Category</source> <target state="translated">Kategorie</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_category.category" approved="yes">
+				<source>category</source> <target state="translated">Kategorie</target></trans-unit>
+			
+			<trans-unit id="tx_jpfaqcomments_domain_model_question" approved="yes">
+				<source>Question</source> <target state="translated">Frage</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.question" approved="yes">
+				<source>question</source> <target state="translated">Frage</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.answer" approved="yes">
+				<source>answer</source> <target state="translated">Antwort</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_question.category" approved="yes">
+				<source>category</source> <target state="translated">Kategorie</target></trans-unit>
+			
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment" approved="yes">
+				<source>Comment</source> <target state="translated">Kommentar</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.comment" approved="yes">
+				<source>comment</source> <target state="translated">Kommentar</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.question" approved="yes">
+				<source>question</source> <target state="translated">Frage</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments_domain_model_comment.user" approved="yes">
+				<source>user</source> <target state="translated">Benutzer</target></trans-unit>
+
+			<trans-unit id="tx_jpfaqcomments.showAnswers" approved="yes">
+				<source>Show all answers</source> <target state="translated">Einblenden aller Antworten</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments.hideAnswers" approved="yes">
+				<source>Hide all answers</source> <target state="translated">Ausblenden aller Antworten</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments.showComments" approved="yes">
+				<source>Show comments</source> <target state="translated">Kommentare anzeigen</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments.hideComments" approved="yes">
+				<source>Hide comments</source> <target state="translated">Kommentar ausblenden</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments.submitComment" approved="yes">
+				<source>Submit comment</source> <target state="translated">Kommentar absenden</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments.searchboxLegend" approved="yes">
+				<source>Quick search FAQ</source> <target state="translated">Schnellsuche FAQ</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments.searchboxLabel" approved="yes">
+				<source>Quick search FAQ</source> <target state="translated">Schnellsuche FAQ</target></trans-unit>
+			
+		</body>
+	</file>
+</xliff>

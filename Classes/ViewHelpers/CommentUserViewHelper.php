@@ -1,5 +1,5 @@
 <?php
-namespace Comnerds\JpfaqComments\Domain\Repository;
+namespace Comnerds\JpfaqComments\ViewHelpers;
 
 /***************************************************************
  *  Copyright notice
@@ -32,9 +32,46 @@ namespace Comnerds\JpfaqComments\Domain\Repository;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class CommentRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
+class CommentUserViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
+	/**
+	 * @param \TYPO3\CMS\Extbase\Domain\Model\FrontendUser $user
+	 * @return string the rendered output for the user
+	 */
+	public function render($user)
+	{
+		$out = '<span class="fullname">';
+		// Construct a custom representation of the user
+		// dependent if getFirstname() and/or getLastName() are set
+		// and later company
+		if ($user->getFirstName() || $user->getLastName())
+		{
+			if (!$user->getFirstName())
+			{
+				$out .= $user->getLastName();
+			}
+			else if (!$user->getLastName())
+			{
+				$out .= $user->getFirstName();
+			}
+			else
+			{
+				$out .= $user->getFirstName() . ' ' . $user->getLastName();
+			}
 
-	protected $defaultOrderings = array('commentdate' => \TYPO3\CMS\Extbase\Persistence\QueryInterface::ORDER_DESCENDING);
+		}
+		else
+		{
+			// If neither are set fall back to just username
+			$out .= $user->getUsername();
+		}
+		$out .= '</span>';
+		if ($user->getCompany())
+		{
+			$out .= ' (' . $user->getCompany() . ')';
+		}
+		return $out;
+	}
 
 }
 ?>
+
