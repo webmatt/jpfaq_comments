@@ -16,4 +16,17 @@ if (!defined('TYPO3_MODE')) {
 	)
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Comnerds.' . $_EXTKEY,
+	'Jpfaqcomments2',
+	array(
+		'Question' => 'list, createComment',
+		
+	),
+	// non-cacheable actions
+	array(
+		'Question' => 'createComment',
+	)
+);
+
 ?>

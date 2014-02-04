@@ -4,13 +4,26 @@ if (!defined('TYPO3_MODE')) {
 }
 
 $extensionName = strtolower(\TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($_EXTKEY));
-$pluginName = strtolower('Jpfaqcomments');
-$pluginSignature = $extensionName . '_' . $pluginName;
+$pluginName = 'Jpfaqcomments';
+$pluginSignature = $extensionName . '_' . strtolower($pluginName);
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	$_EXTKEY,
-	'Jpfaqcomments',
+	$pluginName,
 	'jpFAQ Comments Plugin'
+);
+
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform.xml');
+$TCA['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'layout,select_key,recursive,pages';
+
+$pluginName = 'Jpfaqcomments2';
+$pluginSignature = $extensionName . '_' . strtolower($pluginName);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	$_EXTKEY,
+	$pluginName,
+	'jpFAQ Comments Plugin2 (use this for the second time on same page)'
 );
 
 // flexform

@@ -206,10 +206,11 @@ EOJ;
 					$c->setCommentdate(time());
 					$c->setPid($flexformPid);
 					// check if image was uploaded
-					if (@$_FILES['tx_jpfaqcomments_jpfaqcomments']['error']['image'] == 0)
+					$filename = 'tx_jpfaqcomments_' . strtolower($this->request->getPluginName());
+					if (@$_FILES[$filename]['error']['image'] == 0)
 					{
-						$name = $_FILES['tx_jpfaqcomments_jpfaqcomments']['name']['image'];
-						$tmp_name = $_FILES['tx_jpfaqcomments_jpfaqcomments']['tmp_name']['image'];
+						$name = $_FILES[$filename]['name']['image'];
+						$tmp_name = $_FILES[$filename]['tmp_name']['image'];
 						$storageRepository = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Resource\\StorageRepository');
 						$storage = $storageRepository->findByUid(1);
 						$fileObject = $storage->addFile($tmp_name, $storage->getRootLevelFolder(), $name);
