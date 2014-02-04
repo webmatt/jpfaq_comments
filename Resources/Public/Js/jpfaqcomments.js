@@ -78,7 +78,7 @@ $(document).ready(function(){
         jqthis.hide();
     });
 
-    if (jpfaqQid)
+    if (typeof jpfaqQid !== 'undefined')
     {
         var question = jQuery('.toggleQuestionTrigger' + jpfaqQid);
         question.click();
