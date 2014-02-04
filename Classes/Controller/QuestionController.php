@@ -221,7 +221,7 @@ EOJ;
 				}
 			}
 		}
-		$this->redirect('list');
+		$this->redirect(NULL);
 	}
 
 }
