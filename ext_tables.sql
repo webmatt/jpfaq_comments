@@ -47,7 +47,7 @@ CREATE TABLE tx_jpfaqcomments_domain_model_question (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	question varchar(255) DEFAULT '' NOT NULL,
-	answer varchar(255) DEFAULT '' NOT NULL,
+	answer text DEFAULT '' NOT NULL,
 	category int(11) unsigned DEFAULT '0' NOT NULL,
 	comments int(11) unsigned DEFAULT '0' NOT NULL,
 
