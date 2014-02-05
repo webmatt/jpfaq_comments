@@ -61,3 +61,37 @@ Date: may 2011
 .tx-jpfaq-pi1 .jpfaqHideAll {
    background: url('../Img/all_min.png') no-repeat left center;
 }
+
+.showCommentsTrigger,
+.hideCommentsTrigger {
+	background-color: #20a182;
+	color: white;
+	padding: 7px 10px;
+	text-decoration: none;
+	cursor: pointer;
+	margin-top: -20px;
+}
+
+.showCommentsTrigger:hover {
+	text-decoration: underline;
+}
+
+.commentContainer {
+	border-left: 20px solid rgba(33,161,132,1);
+	padding-left: 20px;
+	background-color: rgba(33,161,132,0.1);
+}
+
+.newCommentForm textarea {
+	width: 95%;
+}
+
+span.fullname {
+	font-weight: bold;
+}
+
+.jpfaqComment {
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	border-bottom: 2px solid rgba(33,161,132,1);
+}

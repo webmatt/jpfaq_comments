@@ -141,6 +141,18 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		{
 			$pathIncludeQuicksearch = NULL;
 		}
+        
+		// Load quicksearch js
+		$includeColorbox = $this->settings['includeColorbox'];
+		$pathIncludeColorbox = '';
+		if (isset($includeColorbox['path']))
+		{
+			$pathIncludeColorbox .= str_replace('EXT:', \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath($this->request->getControllerExtensionKey()), $includeColorbox['path']);
+		}
+		else
+		{
+			$pathIncludeColorbox = NULL;
+		}
 
 		// put js in footer
 		if (isset($pathIncludeJquery))
@@ -150,6 +162,10 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		if (isset($pathIncludeQuicksearch))
 		{
 			$GLOBALS['TSFE']->getPageRenderer()->addJsFooterFile($GLOBALS['TSFE']->tmpl->getFileName($pathIncludeQuicksearch), $type = 'text/javascript', $compress = TRUE, $forceOnTop = FALSE, $allWrap = '');
+		}
+		if (isset($pathIncludeColorbox))
+		{
+			$GLOBALS['TSFE']->getPageRenderer()->addJsFooterFile($GLOBALS['TSFE']->tmpl->getFileName($pathIncludeColorbox), $type = 'text/javascript', $compress = TRUE, $forceOnTop = FALSE, $allWrap = '');
 		}
 
 		// get selected category and page from flexform

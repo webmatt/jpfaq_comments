@@ -30,7 +30,9 @@
 		  <c:commentUser user="{comment.user}" /> {comment.commentdate -> f:format.date()}<br />
 		{comment.comment}
 		<f:if condition="{comment.image}">
-		  <f:image src="{comment.image}" alt="" width="100" height="100" />
+            <a href="{f:uri.image(src: comment.image)}" class="lightbox">
+                <f:image src="{comment.image}" alt="" height="100" class="comment_image" />
+            </a>
 		</f:if>
 		</div>
 	      </f:for>

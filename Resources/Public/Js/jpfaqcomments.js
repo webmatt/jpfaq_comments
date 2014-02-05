@@ -93,4 +93,7 @@ $(document).ready(function() {
         comment.click();
         jQuery('html').animate({ scrollTop: (question.offset().top - 50)}, 500);
     }
+
+
+    jQuery("a.lightbox").colorbox();
 });
