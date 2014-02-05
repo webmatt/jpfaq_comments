@@ -22,13 +22,12 @@
 	  <div class="jpfaqAnswer"><f:format.html>{question.answer}</f:format.html></div>
 	  <div class="showCommentsTrigger"><f:translate key="tx_jpfaqcomments.showComments" /> (<f:count subject="{question.comments}" />)</div>
 	  <div class="hideCommentsTrigger"><f:translate key="tx_jpfaqcomments.hideComments" /></div>
-	  <hr />
 	  <div class="commentContainer">
 	    <ul class="listComments">
 	      <f:for each="{question.comments}" as="comment">
 		<div class="jpfaqComment">
-		  <c:commentUser user="{comment.user}" /> {comment.commentdate -> f:format.date()}<br />
-		{comment.comment}
+            <p><c:commentUser user="{comment.user}" /><br />schrieb am: <span class="date">{comment.commentdate -> f:format.date(format: 'd.m.Y - H:i')} Uhr</span></p>
+		<p>{comment.comment}</p>
 		<f:if condition="{comment.image}">
             <a href="{f:uri.image(src: comment.image)}" class="lightbox">
                 <f:image src="{comment.image}" alt="" height="100" class="comment_image" />
@@ -39,13 +38,14 @@
 	    </ul>
 	    <div class="newCommentForm">
 	      <f:form action="createComment" name="createComment{question.uid}" enctype="multipart/form-data">
-		<f:form.hidden name="qid" value="{question.uid}" />
-		<f:form.textarea cols="20" rows="5" name="comment" />
-		<f:form.upload name="image" />
-		<f:form.submit value="{f:translate(key:'tx_jpfaqcomments.submitComment')}" class="btn btn-default btn-info" />
+            <f:form.hidden name="qid" value="{question.uid}" />
+            <f:form.textarea cols="20" rows="5" name="comment" />
+            <f:form.upload name="image" />
+            <f:form.submit value="{f:translate(key:'tx_jpfaqcomments.submitComment')}" class="btn btn-default btn-info" />
 	      </f:form>
 	    </div>
 	  </div>
+	  <hr />
 	</div>
       </li>
     </f:for>
