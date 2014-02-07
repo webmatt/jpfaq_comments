@@ -15,12 +15,13 @@ plugin.tx_jpfaqcomments {
 		includeCss {
 			file1.path = EXT:Resources/Public/Css/jpfaq.css
 			file1.mediatype = all
-            file2.path = EXT:Resources/Public/Css/colorbox.css
-            file2.mediatype = all
+			file2.path = EXT:Resources/Public/Css/colorbox.css
+			file2.mediatype = all
 		}
 		includeJquery.path = EXT:Resources/Public/Js/jquery152.min.js
 		includeQuicksearch.path = EXT:Resources/Public/Js/quicksearch.js
-        includeColorbox.path = EXT:Resources/Public/Js/jquery.colorbox-min.js
+		includeColorbox.path = EXT:Resources/Public/Js/jquery.colorbox-min.js
+		newCommentRecipient = m.toews@comnerds.com
 	}
 }
 
