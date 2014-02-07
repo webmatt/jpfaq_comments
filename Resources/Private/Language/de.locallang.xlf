@@ -41,6 +41,10 @@
 				<source>Quick search FAQ</source> <target state="translated">Schnellsuche FAQ</target></trans-unit>
 			<trans-unit id="tx_jpfaqcomments.searchboxLabel" approved="yes">
 				<source>Quick search FAQ</source> <target state="translated">Schnellsuche FAQ</target></trans-unit>
+			<trans-unit id="tx_jpfaqcomments.newComment_subject">
+				<source>New Comment</source>
+				<target state="translated">Neuer Kommentar</target>
+			</trans-unit>
 			
 		</body>
 	</file>

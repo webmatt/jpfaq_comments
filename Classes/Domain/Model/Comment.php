@@ -49,6 +49,13 @@ class Comment extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $commentdate;
 
 	/**
+	 * hidden
+	 *
+	 * @var \integer
+	 */
+	protected $hidden;
+
+	/**
 	 * question
 	 *
 	 * @var \Comnerds\JpfaqComments\Domain\Model\Question
@@ -105,6 +112,25 @@ class Comment extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setCommentdate($commentdate) {
 		$this->commentdate = $commentdate;
+	}
+
+	/**
+	 * Returns the hidden
+	 *
+	 * @return \integer $hidden
+	 */
+	public function getHidden() {
+		return $this->hidden;
+	}
+
+	/**
+	 * Sets the hidden
+	 *
+	 * @param \integer $hidden
+	 * @return void
+	 */
+	public function setHidden($hidden) {
+		$this->hidden = $hidden;
 	}
 
 	/**

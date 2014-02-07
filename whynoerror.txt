@@ -1,0 +1,2 @@
+This is the query: UPDATE tx_jpfaqcomments_domain_model_comment SET deleted='1',tstamp='1391744242',commentdate DESC='1000000000' WHERE uid=17.
+Why did this throw no error?!?!

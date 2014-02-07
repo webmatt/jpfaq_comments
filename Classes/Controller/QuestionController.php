@@ -215,12 +215,13 @@ EOJ;
 				if ($user)
 				{
 					$flexformPid = intval($this->settings['flexform']['selectPid']);
-					$c = new \Comnerds\JpfaqComments\Domain\Model\Comment;
+					$c = $this->objectManager->get('Comnerds\\JpfaqComments\\Domain\\Model\\Comment');
 					$c->setQuestion($question);
 					$c->setComment($comment);
 					$c->setUser($user);
 					$c->setCommentdate(time());
 					$c->setPid($flexformPid);
+					$c->setHidden(true);
 					// check if image was uploaded
 					$filename = 'tx_jpfaqcomments_' . strtolower($this->request->getPluginName());
 					if (@$_FILES[$filename]['error']['image'] == 0)
@@ -233,11 +234,46 @@ EOJ;
 						$c->setImage($fileObject->getUid());
 					}
 					$this->commentRepository->add($c);
+					// TODO: Clear cache for all pages related to this question
 					$this->cacheService->clearPageCache($GLOBALS['TSFE']->id);
+					$this->sendMail($c);
 				}
 			}
 		}
 		$this->redirect(NULL);
+	}
+
+	/**
+	 * Sends an email that a new comment was created to the configured recipient.
+	 *
+	 * @param \Comnerds\JpfaqComments\Domain\Model\Comment $comment
+	 */
+	private function sendMail($comment)
+	{
+		if (!isset($this->settings['newCommentRecipient']) | !isset($this->settings['newCommentSender']))
+		{
+			return;
+		}
+
+		// render email template
+		$emailView = $this->objectManager->get('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
+		$emailView->setFormat('html');
+		$extbaseFrameworkConfiguration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+
+		$templateRootPath = \TYPO3\CMS\Core\Utility\GeneralUtility::getFileAbsFileName($extbaseFrameworkConfiguration['view']['templateRootPath']);
+		$templateFullPath = $templateRootPath . 'Email/NewComment.html';
+		$emailView->setTemplatePathAndFilename($templateFullPath);
+		$emailView->assign('comment', $comment);
+
+		$recipient = $this->settings['newCommentRecipient'];
+		$sender = $this->settings['newCommentSender'];
+		$mail = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage');
+		$mail->setFrom(array($sender => ''))
+			 ->setTo(array($recipient => ''))
+			 ->setSubject(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_jpfaqcomments.newComment_subject', $this->request->getControllerExtensionKey()))
+			 ->setBody($emailView->render(), 'text/html')
+			 ->send();
+
 	}
 
 }

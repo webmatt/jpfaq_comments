@@ -22,6 +22,7 @@ plugin.tx_jpfaqcomments {
 		includeQuicksearch.path = EXT:Resources/Public/Js/quicksearch.js
 		includeColorbox.path = EXT:Resources/Public/Js/jquery.colorbox-min.js
 		newCommentRecipient = m.toews@comnerds.com
+		newCommentSender = info@saphir-software.de
 	}
 }
 

@@ -1,0 +1,15 @@
+{namespace c=Comnerds\JpfaqComments\ViewHelpers}
+<html>
+	<head>
+		<title>New Comment</title>
+	</head>
+	<body>
+		<p>A new comment was created.</p>
+		<p><c:commentUser user="{comment.user}" /></p>
+		<hr />
+		<p>{comment.comment}</p>
+		<f:if condition="{comment.image}">
+			<img src="{f:uri.image(src: comment.image)}" height="100" ></img>
+		</f:if>
+	</body>
+</html>
