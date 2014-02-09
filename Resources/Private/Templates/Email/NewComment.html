@@ -9,7 +9,7 @@
 		<hr />
 		<p>{comment.comment}</p>
 		<f:if condition="{comment.image}">
-			<img src="{f:uri.image(src: comment.image)}" height="100" ></img>
+			<img src="{c:image(src: comment.image, height: 100, absolute: 1)}" height="100" ></img>
 		</f:if>
 	</body>
 </html>
