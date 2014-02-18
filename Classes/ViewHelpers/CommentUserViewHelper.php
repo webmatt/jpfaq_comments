@@ -39,6 +39,10 @@ class CommentUserViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
 	 */
 	public function render($user)
 	{
+		if (!$user)
+		{
+			return '<span class="fullname">Gelöschter Benutzer</span>';
+		}
 		$out = '<span class="fullname">';
 		// Construct a custom representation of the user
 		// dependent if getFirstname() and/or getLastName() are set
