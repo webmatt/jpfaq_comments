@@ -250,7 +250,7 @@ EOJ;
 	 */
 	private function sendMail($comment)
 	{
-		if (!isset($this->settings['newCommentRecipient']) | !isset($this->settings['newCommentSender']))
+		if (!isset($this->settings['newCommentRecipient']) || !isset($this->settings['newCommentSender']) || !isset($this->settings['newCommentSubject']))
 		{
 			return;
 		}
@@ -267,10 +267,12 @@ EOJ;
 
 		$recipient = $this->settings['newCommentRecipient'];
 		$sender = $this->settings['newCommentSender'];
+		$subject = $this->settings['newCommentSubject'];
 		$mail = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage');
 		$mail->setFrom(array($sender => ''))
 			 ->setTo(array($recipient => ''))
-			 ->setSubject(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_jpfaqcomments.newComment_subject', $this->request->getControllerExtensionKey()))
+//			 ->setSubject(\TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_jpfaqcomments.newComment_subject', $this->request->getControllerExtensionKey()))
+			 ->setSubject($subject)
 			 ->setBody($emailView->render(), 'text/html')
 			 ->send();
 

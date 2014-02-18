@@ -23,30 +23,6 @@ plugin.tx_jpfaqcomments {
 		includeColorbox.path = EXT:Resources/Public/Js/jquery.colorbox-min.js
 		newCommentRecipient = m.toews@comnerds.com
 		newCommentSender = info@saphir-software.de
+		newCommentSubject = New Comment
 	}
 }
-
-#plugin.tx_jpfaqcomments._CSS_DEFAULT_STYLE (
-#	textarea.f3-form-error {
-#		background-color:#FF9F9F;
-#		border: 1px #FF0000 solid;
-#	}
-#
-#	input.f3-form-error {
-#		background-color:#FF9F9F;
-#		border: 1px #FF0000 solid;
-#	}
-#
-#	.tx-jpfaq-comments table {
-#		border-collapse:separate;
-#		border-spacing:10px;
-#	}
-#
-#	.tx-jpfaq-comments table th {
-#		font-weight:bold;
-#	}
-#
-#	.tx-jpfaq-comments table td {
-#		vertical-align:top;
-#	}
-#)
