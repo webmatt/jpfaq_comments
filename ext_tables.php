@@ -31,6 +31,16 @@ $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform.xml');
 $TCA['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'layout,select_key,recursive,pages';
 
+$pluginName = 'notification';
+$pluginSignature = $extensionName . '_' . strtolower($pluginName);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	$_EXTKEY,
+	$pluginName,
+	'jpFAQ New Questions Notification'
+);
+
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'jpFAQ Comments');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_jpfaqcomments_domain_model_category', 'EXT:jpfaq_comments/Resources/Private/Language/locallang_csh_tx_jpfaqcomments_domain_model_category.xlf');

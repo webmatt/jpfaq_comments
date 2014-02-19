@@ -116,4 +116,9 @@ $(document).ready(function() {
         printWindow.print();
         printWindow.close();
     });
+
+    // question notification
+    jQuery.each(jpfaqNewQuestions, function(idx, value) {
+        jQuery('.toggleQuestionTrigger' + value).addClass('toggleQuestionTriggerNew');
+    });
 });

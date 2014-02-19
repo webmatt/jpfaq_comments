@@ -262,6 +262,14 @@ EOJ;
 	}
 
 	/**
+	 * Shows the new questions notification
+	 */
+	public function notificationAction()
+	{
+	    $this->view->assign('count', count($this->newquestions));
+	}
+
+	/**
 	 * Sends an email that a new comment was created to the configured recipient.
 	 *
 	 * @param \Comnerds\JpfaqComments\Domain\Model\Comment $comment
