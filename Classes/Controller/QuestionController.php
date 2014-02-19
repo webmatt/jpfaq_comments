@@ -254,13 +254,6 @@ EOJ;
 		{
 			return;
 		}
-		$recipient = $this->settings['newCommentRecipient'];
-		$sender = $this->settings['newCommentSender'];
-
-		if (!$sender || !$recipient)
-		{
-			return;
-		}
 
 		// render email template
 		$emailView = $this->objectManager->get('TYPO3\\CMS\\Fluid\\View\\StandaloneView');
