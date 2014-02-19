@@ -1,5 +1,5 @@
 <?php
-namespace Comnerds\JpfaqComments\ViewHelpers;
+namespace Comnerds\JpfaqComments\Hooks;
 
 /***************************************************************
  *  Copyright notice
@@ -32,50 +32,17 @@ namespace Comnerds\JpfaqComments\ViewHelpers;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class CommentUserViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper {
-	/**
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FrontendUser $user
-	 * @return string the rendered output for the user
-	 */
-	public function render($user)
-	{
-		if (!$user)
-		{
-			return '<span class="fullname">Gelöschter Benutzer</span>';
-		}
-		$out = '<span class="fullname">';
-		// Construct a custom representation of the user
-		// dependent if getFirstname() and/or getLastName() are set
-		// and later company
-		if ($user->getFirstName() || $user->getLastName())
-		{
-			if (!$user->getFirstName())
-			{
-				$out .= $user->getLastName();
-			}
-			else if (!$user->getLastName())
-			{
-				$out .= $user->getFirstName();
-			}
-			else
-			{
-				$out .= $user->getFirstName() . ' ' . $user->getLastName();
-			}
+class HooksHandler {
 
-		}
-		else
-		{
-			// If neither are set fall back to just username
-			$out .= $user->getUsername();
-		}
-		$out .= '</span>';
-		if ($user->getCompany())
-		{
-			$out .= ' (' . $user->getCompany() . ')';
-		}
-		return $out;
+	/**
+	 * Login Confirmed hook
+	 * @param array $params
+	 * @param object $obj
+	 */
+	public function loginConfirmed($params, &$obj)
+	{
+//		error_log(json_encode($GLOBALS['TSFE']->fe_user->user));
 	}
 
 }
 ?>
-

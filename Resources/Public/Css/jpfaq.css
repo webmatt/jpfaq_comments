@@ -1,54 +1,54 @@
 /*
-***********************************************************
-Title: jpfaq.css
-Author: Jacco van der Post - www.TYPO3-webdesign.nl
-Date: may 2011
-***********************************************************
-*/
+ ***********************************************************
+ Title: jpfaq.css
+ Author: Jacco van der Post - www.TYPO3-webdesign.nl
+ Date: may 2011
+ ***********************************************************
+ */
 
 .tx-jpfaq-pi1 fieldset {
-    margin-bottom:10px;
+   margin-bottom:10px;
 }
 
 .tx-jpfaq-pi1 legend {
-    display:none;
+   display:none;
 }
 
 .tx-jpfaq-pi1 label {
-    font-weight: bold;
+   font-weight: bold;
 }
 
 .tx-jpfaq-pi1 ul {
-    margin:0;
-    padding:0;
-    padding-bottom:10px;
+   margin:0;
+   padding:0;
+   padding-bottom:10px;
 }
 
 
 .tx-jpfaq-pi1 li {
-    list-style: none;
-    margin:0;
-    padding:0;
-    margin-bottom:10px;
+   list-style: none;
+   margin:0;
+   padding:0;
+   margin-bottom:10px;
 
 }
 
 .tx-jpfaq-pi1 li h3 {
-    background: url('../Img/plus.png') no-repeat left center;
-    padding-left:20px;
-    margin-bottom:3px;
+   background: url('../Img/plus.png') no-repeat left center;
+   padding-left:20px;
+   margin-bottom:3px;
 }
 
 .tx-jpfaq-pi1 li h3.questionUnfolded  {
-    background: url('../Img/min.png') no-repeat left center;
+   background: url('../Img/min.png') no-repeat left center;
 }
 
 .tx-jpfaq-pi1 li h3 {
-    cursor:pointer;
+   cursor:pointer;
 }
 
 .tx-jpfaq-pi1 .jpfaqAll {
-    margin-bottom:10px;
+   margin-bottom:10px;
 }
 
 .tx-jpfaq-pi1 .jpfaqShowAll,
@@ -64,39 +64,43 @@ Date: may 2011
 
 .showCommentsTrigger,
 .hideCommentsTrigger {
-	background-color: #20a182;
-	color: white;
-	padding: 7px 10px;
-	text-decoration: none;
-	cursor: pointer;
-	margin-top: -20px;
+   background-color: #20a182;
+   color: white;
+   padding: 7px 10px;
+   text-decoration: none;
+   cursor: pointer;
+   margin-top: -20px;
 }
 
 .showCommentsTrigger:hover {
-	text-decoration: underline;
+   text-decoration: underline;
 }
 
 .commentContainer {
-	border-left: 10px solid rgba(33,161,132,0.5);
-	padding: 15px;
-	background-color: rgba(33,161,132,0.1);
-	border-bottom: 1px solid rgba(33,161,132,1);
+   border-left: 10px solid rgba(33,161,132,0.5);
+   padding: 15px;
+   background-color: rgba(33,161,132,0.1);
+   border-bottom: 1px solid rgba(33,161,132,1);
 }
 
 .newCommentForm textarea {
-	width: 95%;
+   width: 95%;
 }
 
 span.fullname {
-	font-weight: bold;
+   font-weight: bold;
 }
 
 .jpfaqComment {
-	padding-bottom: 10px;
-	margin-bottom: 20px;
-	border-bottom: 1px solid rgba(33,161,132,1);
+   padding-bottom: 10px;
+   margin-bottom: 20px;
+   border-bottom: 1px solid rgba(33,161,132,1);
 }
 
 span.date {
-	color: #20a182;
+   color: #20a182;
+}
+
+.jpfaqPrint {
+   display: none;
 }

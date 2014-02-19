@@ -29,4 +29,6 @@ if (!defined('TYPO3_MODE')) {
 	)
 );
 
+//$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['login_confirmed'][] = 'EXT:jpfaq_comments/Classes/Hooks/HooksHandler.php:Comnerds\JpfaqComments\Hooks\HooksHandler->loginConfirmed';
+
 ?>

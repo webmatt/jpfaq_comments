@@ -94,6 +94,26 @@ $(document).ready(function() {
         jQuery('html').animate({ scrollTop: (question.offset().top - 50)}, 500);
     }
 
-
     jQuery("a.lightbox").colorbox();
+
+    // print button
+    jQuery("button.jpfaqPrint").click(function() {
+        var container = jQuery(this).parents(".toggleQuestionTriggerContainer");
+        var question = container.siblings(".toggleQuestionTrigger").html();
+        var answer = container.children(".jpfaqAnswer").html();
+
+        var printHtml = "<html><head></head><body>";
+        printHtml += "<p>" + question + "</p>";
+        printHtml += "<hr />";
+        printHtml += answer;
+        printHtml += "</body></html>";
+
+        var printWindow = window.open();
+        printWindow.document.write(printHtml);
+        printWindow.document.close();
+
+        printWindow.focus();
+        printWindow.print();
+        printWindow.close();
+    });
 });
