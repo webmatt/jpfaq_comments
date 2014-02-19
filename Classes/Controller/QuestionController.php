@@ -292,8 +292,11 @@ EOJ;
 		$emailView->assign('comment', $comment);
 
 		$recipient = $this->settings['newCommentRecipient'];
-		$sender = $this->settings['newCommentSender'];
-		$subject = $this->settings['newCommentSubject'];
+//		$sender = $this->settings['newCommentSender'];
+		$sender = $comment->getUser()->getEmail();
+//		$subject = $this->settings['newCommentSubject'];
+		$subject = "Nachfrage zu FAQ ID " . $comment->getQuestion()->getUid() . " - " . 
+		    $this->configurationManager->getContentObject()->crop($comment->getQuestion()->getQuestion(), '32|...|true');
 		$mail = $this->objectManager->get('TYPO3\\CMS\\Core\\Mail\\MailMessage');
 		$mail->setFrom(array($sender => ''))
 			 ->setTo(array($recipient => ''))
