@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_jpfaqcomments_domain_model_question'] = array(
 	'ctrl' => $TCA['tx_jpfaqcomments_domain_model_question']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'question, answer, comments, category',
+		'showRecordFieldList' => 'question, answer, category, comments',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'question, answer, comments, category'),
+		'1' => array('showitem' => 'question, answer, category, comments'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -106,27 +106,12 @@ $TCA['tx_jpfaqcomments_domain_model_question'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:jpfaq_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments_domain_model_question.answer',
 			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim,required'
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => ''
 			),
-		),
-		'comments' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:jpfaq_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments_domain_model_question.comments',
-			'config' => array(
-				'type' => 'inline',
-				'foreign_table' => 'tx_jpfaqcomments_domain_model_comment',
-				'foreign_field' => 'question',
-				'maxitems' => 9999,
-				'appearance' => array(
-					'collapseAll' => 0,
-					'levelLinksPosition' => 'top',
-					'showSynchronizationLink' => 1,
-					'showPossibleLocalizationLink' => 1,
-					'showAllLocalizationLink' => 1
-				),
-			),
+			'defaultExtras' => 'richtext[*]:rte_transform[mode=ts]'
 		),
 		'category' => array(
 			'exclude' => 0,
@@ -150,7 +135,7 @@ $TCA['tx_jpfaqcomments_domain_model_question'] = array(
 						'icon' => 'edit2.gif',
 						'popup_onlyOpenIfSelected' => 1,
 						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-						),
+					),
 					'add' => Array(
 						'type' => 'script',
 						'title' => 'Create new',
@@ -159,9 +144,26 @@ $TCA['tx_jpfaqcomments_domain_model_question'] = array(
 							'table' => 'tx_jpfaqcomments_domain_model_category',
 							'pid' => '###CURRENT_PID###',
 							'setValue' => 'prepend'
-							),
+						),
 						'script' => 'wizard_add.php',
 					),
+				),
+			),
+		),
+		'comments' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:jpfaq_comments/Resources/Private/Language/locallang_db.xlf:tx_jpfaqcomments_domain_model_question.comments',
+			'config' => array(
+				'type' => 'inline',
+				'foreign_table' => 'tx_jpfaqcomments_domain_model_comment',
+				'foreign_field' => 'question',
+				'maxitems' => 9999,
+				'appearance' => array(
+					'collapseAll' => 0,
+					'levelLinksPosition' => 'top',
+					'showSynchronizationLink' => 1,
+					'showPossibleLocalizationLink' => 1,
+					'showAllLocalizationLink' => 1
 				),
 			),
 		),

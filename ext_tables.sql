@@ -136,3 +136,7 @@ CREATE TABLE tx_jpfaqcomments_question_category_mm (
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );
+
+CREATE TABLE fe_users (
+	jpfaq_lastlogin int(10) unsigned DEFAULT '0' NOT NULL
+);

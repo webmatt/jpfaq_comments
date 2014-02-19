@@ -67,13 +67,27 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	protected $frontendUserRepository;
 
 	/**
+	 * lastlogin
+	 *
+	 */
+	protected $newquestions;
+
+	/**
 	 * Overriden to be called before every action.
 	 *
 	 * @return void
 	 */
 	protected function initializeAction()
 	{
-
+		$temp = $GLOBALS['TSFE']->fe_user->getKey('ses', 'jpfaq_newquestions');
+		if (is_array($temp))
+		{
+			$this->newquestions = $temp;
+		}
+		else
+		{
+			$this->newquestions = array();
+		}
 //		if ($this->arguments->hasArgument('image')) {
 //			$this->arguments->getArgument('image')->getPropertyMappingConfiguration()->setTypeConverterOption('TYPO3\\CMS\\Extbase\\Property\\TypeConverter\\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_TARGET_TYPE, 'array');
 //			$this->arguments->getArgument('image')->getPropertyMappingConfiguration()->setTypeConverterOption('TYPO3\\CMS\\Extbase\\Property\\TypeConverter\\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_CREATION_ALLOWED, TRUE);
@@ -180,13 +194,17 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		$this->view->assign('categoryUid', $selectedCategory);
 
 		//set fold / unfold js
-		$js = "var jpfaqCategory = $selectedCategory;";
+		$json = json_encode($this->newquestions);
 		$js = <<<EOJ
 if (typeof jpfaqCategories == 'undefined')
 {
 	jpfaqCategories = new Array();
 }		
 jpfaqCategories.push($selectedCategory);
+if (typeof jpfaqNewQuestions == 'undefined')
+{
+    jpfaqNewQuestions = JSON.parse('$json');
+}
 EOJ;
 
 		//load dynamic js in footer
