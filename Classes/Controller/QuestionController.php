@@ -67,10 +67,15 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 	protected $frontendUserRepository;
 
 	/**
-	 * lastlogin
+	 * newquestions
 	 *
 	 */
 	protected $newquestions;
+
+	/**
+	 * newpercats
+	 */
+	protected $newpercats;
 
 	/**
 	 * Overriden to be called before every action.
@@ -87,6 +92,70 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 		else
 		{
 			$this->newquestions = array();
+		}
+		$cats = $GLOBALS['TSFE']->fe_user->getKey('ses', 'jpfaq_newpercats');
+		if (is_array($cats))
+		{
+		    $this->newpercats = $cats;
+		}
+		else
+		{
+		    error_log("fetch new per cats");
+		    if (count($this->newquestions) > 0)
+		    {
+			$pid = intval($this->settings['flexform']['selectPid']);
+			$pages = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows('uid,title', 'pages', "pid = $pid AND hidden = 0 AND deleted = 0");
+			$uids = array();
+			$titles = array();
+			foreach($pages as $page)
+			{
+			    $uids[] = $page["uid"];
+			    $titles[$page["uid"]] = $page["title"];
+			}
+			$uidstring = "(" . implode(",", $uids) . ")";
+			$titlecats = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows("pid,pi_flexform", 'tt_content', "pid in $uidstring AND hidden = 0 AND deleted = 0 AND list_type = 'jpfaqcomments_jpfaqcomments'");
+			$cats = array();
+			foreach($titlecats as $titlecat)
+			{
+			    $str = $titlecat['pi_flexform'];
+			    $pos = strpos($str, "selectCategory");
+			    $str = substr($str, $pos);
+			    $pos = strpos($str, "value");
+			    $str = substr($str, $pos);
+			    $pos = strpos($str, ">");
+			    $str = substr($str, $pos+1);
+			    $pos = strpos($str, "<");
+			    $str = substr($str, 0, $pos);
+			    $cat = intval($str);
+
+			    $count = 0;
+			    foreach($this->newquestions as $qid)
+			    {
+				$qcats = $GLOBALS['TYPO3_DB']->exec_SELECTgetRows("uid_foreign", "tx_jpfaqcomments_question_category_mm", "uid_local = $qid");
+				foreach($qcats as $qcat)
+				{
+				    if ($qcat['uid_foreign'] == $cat)
+				    {
+					$count++;
+				    }
+				}
+			    }
+			    if ($count > 0)
+			    {
+				$cats[$titles[$titlecat["pid"]]] = $count;
+			    }
+			}
+			$this->newpercats = $cats;
+			if (count($cats) > 0)
+			{
+			    $GLOBALS['TSFE']->fe_user->setKey('ses', 'jpfaq_newpercats', $cats);
+			    $GLOBALS['TSFE']->fe_user->storeSessionData();
+			}
+		    }
+		    else
+		    {
+			$this->newpercats = array();
+		    }
 		}
 //		if ($this->arguments->hasArgument('image')) {
 //			$this->arguments->getArgument('image')->getPropertyMappingConfiguration()->setTypeConverterOption('TYPO3\\CMS\\Extbase\\Property\\TypeConverter\\PersistentObjectConverter', \TYPO3\CMS\Extbase\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_TARGET_TYPE, 'array');
@@ -195,6 +264,7 @@ class QuestionController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControl
 
 		//set fold / unfold js
 		$json = json_encode($this->newquestions);
+		$json2 = json_encode($this->newpercats);
 		$js = <<<EOJ
 if (typeof jpfaqCategories == 'undefined')
 {
@@ -204,6 +274,10 @@ jpfaqCategories.push($selectedCategory);
 if (typeof jpfaqNewQuestions == 'undefined')
 {
     jpfaqNewQuestions = JSON.parse('$json');
+}
+if (typeof jpfaqNewPerCats == 'undefined')
+{
+    jpfaqNewPerCats = JSON.parse('$json2');
 }
 EOJ;
 

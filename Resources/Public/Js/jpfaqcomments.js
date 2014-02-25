@@ -121,4 +121,15 @@ $(document).ready(function() {
     jQuery.each(jpfaqNewQuestions, function(idx, value) {
         jQuery('.toggleQuestionTrigger' + value).addClass('toggleQuestionTriggerNew');
     });
+
+    // add number of new comments per category to menu
+    jQuery(".subMenuIndent").each(function(idx, value) {
+        var elem = jQuery(value);
+        var title = elem.text().trim();
+        if (title in jpfaqNewPerCats)
+        {
+            var number = jpfaqNewPerCats[title];
+//            elem.children("a").append('<span class="jpfaqNewCount">' + number + '</span>');
+        }
+    });
 });
