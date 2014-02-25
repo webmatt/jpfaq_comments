@@ -19,9 +19,9 @@
       <li>
 	<h3 class="toggleQuestionTrigger toggleQuestionTrigger{question.uid}">{question.question}</h3>
 	<div class="toggleQuestionTriggerContainer toggleQuestionTriggerContainer{categoryUid}">
-	  <button name="Drucken" type="button" value="Drucken" class="jpfaqPrint" >Drucken</button>
-	  <div class="jpfaqAnswer"><f:format.html>{question.answer}</f:format.html></div>
-	  <div class="showCommentsTrigger"><f:translate key="tx_jpfaqcomments.showComments" /> (<f:count subject="{question.comments}" />)</div>
+	  <div class="jpfaqAnswer"><f:format.html>{question.answer}</f:format.html>
+	  	<p><button name="Drucken" type="button" value="Drucken" class="jpfaqPrint btn btn-info btn-small right" >Drucken</button></p></div>
+	  <div class="showCommentsTrigger"><f:translate key="tx_jpfaqcomments.showComments" /></div>
 	  <div class="hideCommentsTrigger"><f:translate key="tx_jpfaqcomments.hideComments" /></div>
 	  <div class="commentContainer">
 	    <ul class="listComments">
