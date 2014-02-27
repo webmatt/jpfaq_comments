@@ -25,4 +25,24 @@ plugin.tx_jpfaqcomments {
 		newCommentSender = info@saphir-software.de
 		newCommentSubject = New Comment
 	}
+
+	widgets {
+		showCountWidget = USER
+		showCountWidget {
+			userFunc = tx_extbase_core_bootstrap->run
+			vendorName = Comnerds
+			pluginName = showcount
+			extensionName = JpfaqComments
+			controller = Question
+			action = showCount
+			switchableControllerActions {
+				Question {
+					1 = showCount
+				}
+			}
+			settings =< plugin.tx_jpfaqcomments.settings
+			persistence =< plugin.tx_jpfaqcomments.persistence
+			pview =< plugin.tx_jpfaqcomments.view
+		}
+	}
 }

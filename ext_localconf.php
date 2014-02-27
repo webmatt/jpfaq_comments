@@ -42,6 +42,19 @@ if (!defined('TYPO3_MODE')) {
 	)
 );
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Comnerds.' . $_EXTKEY,
+	'showcount',
+	array(
+		'Question' => 'showCount',
+		
+	),
+	// non-cacheable actions
+	array(
+		'Question' => 'showCount',
+	)
+);
+
 //$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['felogin']['login_confirmed'][] = 'EXT:jpfaq_comments/Classes/Hooks/HooksHandler.php:Comnerds\JpfaqComments\Hooks\HooksHandler->loginConfirmed';
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['tslib/class.tslib_fe.php']['checkDataSubmission'][] = 'EXT:jpfaq_comments/Classes/Hooks/HooksHandler.php:Comnerds\JpfaqComments\Hooks\HooksHandler';
 

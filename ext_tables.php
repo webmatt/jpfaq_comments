@@ -40,6 +40,15 @@ $pluginSignature = $extensionName . '_' . strtolower($pluginName);
 	'jpFAQ New Questions Notification'
 );
 
+$pluginName = 'showcount';
+$pluginSignature = $extensionName . '_' . strtolower($pluginName);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+	$_EXTKEY,
+	$pluginName,
+	'jpFAQ New Questions count'
+);
+
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'jpFAQ Comments');
 

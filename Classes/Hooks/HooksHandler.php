@@ -80,13 +80,14 @@ class HooksHandler {
 						$questions[] = $row['uid'];
 					}
 					$GLOBALS['TSFE']->fe_user->setKey('ses', 'jpfaq_newquestions', $questions);
-					$GLOBALS['TSFE']->fe_user->storeSessionData();
 				}
 				$GLOBALS['TYPO3_DB']->exec_UPDATEquery('fe_users',
 					'uid=' . intval($user['uid']), array('jpfaq_lastlogin' => $user['lastlogin']));
 			}
 		}
 		$GLOBALS['TSFE']->fe_user->setKey('ses', 'jpfaq_newpercats', null);
+		$GLOBALS['TSFE']->fe_user->setKey('ses', 'jpfaq_newtotal', null);
+		$GLOBALS['TSFE']->fe_user->storeSessionData();
 	}
 
 }
