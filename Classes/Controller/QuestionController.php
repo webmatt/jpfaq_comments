@@ -276,7 +276,7 @@ EOJ;
 	if (!is_array($cats))
 	{
 	    $cats = array();
-	    error_log("fetch new per cats");
+//	    error_log("fetch new per cats");
 	    if (count($this->newquestions) > 0)
 	    {
 		$pid = 127; // temp, ..., intval($this->settings['flexform']['selectPid']);
@@ -331,7 +331,7 @@ EOJ;
 	if (!is_array($newtotal))
 	{
 	    $newtotal = array();
-	    error_log("fetch new total");
+//	    error_log("fetch new total");
 	    if (count($this->newquestions) > 0)
 	    {
 		$pid = 127; // temp, ..., intval($this->settings['flexform']['selectPid']);
