@@ -121,4 +121,12 @@ $(document).ready(function() {
     jQuery.each(jpfaqNewQuestions, function(idx, value) {
         jQuery('.toggleQuestionTrigger' + value).addClass('toggleQuestionTriggerNew');
     });
+
+    // form submission, disable form elements and enable loading gif
+    jQuery(".createCommentForm").submit(function() {
+        elem = jQuery(this);
+        elem.find(":input").attr("readonly", true);
+        elem.find(".submit").hide();
+        elem.find(".loadingGif").show();
+    });
 });

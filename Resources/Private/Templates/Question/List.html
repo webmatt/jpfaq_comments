@@ -38,11 +38,12 @@
 	      </f:for>
 	    </ul>
 	    <div class="newCommentForm">
-	      <f:form action="createComment" name="createComment{question.uid}" enctype="multipart/form-data">
+	      <f:form class="createCommentForm" action="createComment" name="createComment{question.uid}" enctype="multipart/form-data">
             <f:form.hidden name="qid" value="{question.uid}" />
             <f:form.textarea cols="20" rows="5" name="comment" />
             <f:form.upload name="image" />
-            <f:form.submit value="{f:translate(key:'tx_jpfaqcomments.submitComment')}" class="btn btn-default btn-info" />
+	    <img src="{f:uri.resource(path: 'Img/loading.gif')}" alt="Loading" style="display:none" class="loadingGif" />
+            <f:form.submit value="{f:translate(key:'tx_jpfaqcomments.submitComment')}" class="btn btn-default btn-info submit" />
 	      </f:form>
 	    </div>
 	  </div>
