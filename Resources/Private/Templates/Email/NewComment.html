@@ -11,8 +11,8 @@
 		<p>Kommentar von: <c:commentUser user="{comment.user}" /></p>
 		<hr />
 		<p>Kommentar: {comment.comment}</p>
-		<f:if condition="{comment.image}">
-			<!--img src="{f:uri.image(src: comment.image)}" height="100" ></img>
+		<f:if condition="{appendix}">
+		<p><a href="{appendix}" target="_blank">Angehängte Datei</a></p>
 		</f:if>
 	</body>
 </html>

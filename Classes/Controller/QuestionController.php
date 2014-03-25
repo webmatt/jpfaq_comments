@@ -240,6 +240,7 @@ EOJ;
 		    $c->setHidden(true);
 		    // check if image was uploaded
 		    $filename = 'tx_jpfaqcomments_' . strtolower($this->request->getPluginName());
+		    $fileObject = null;
 		    if (@$_FILES[$filename]['error']['image'] == 0)
 		    {
 			$name = $_FILES[$filename]['name']['image'];
@@ -252,7 +253,7 @@ EOJ;
 		    $this->commentRepository->add($c);
 		    // TODO: Clear cache for all pages related to this question
 		    $this->cacheService->clearPageCache($GLOBALS['TSFE']->id);
-		    $this->sendMail($c);
+		    $this->sendMail($c, $fileObject);
 		}
 	    }
 	}
@@ -371,7 +372,7 @@ EOJ;
      *
      * @param \Comnerds\JpfaqComments\Domain\Model\Comment $comment
      */
-    private function sendMail($comment)
+    private function sendMail($comment, $fileObject = NULL)
     {
 	if (!isset($this->settings['newCommentRecipient']) || !isset($this->settings['newCommentSender']) || !isset($this->settings['newCommentSubject']))
 	{
@@ -387,6 +388,11 @@ EOJ;
 	$templateFullPath = $templateRootPath . 'Email/NewComment.html';
 	$emailView->setTemplatePathAndFilename($templateFullPath);
 	$emailView->assign('comment', $comment);
+	if ($fileObject != NULL)
+	{
+	    $appendix = $this->request->getBaseURI() . $fileObject->getPublicUrl();
+	    $emailView->assign('appendix', $appendix);
+	}
 
 	$recipient = $this->settings['newCommentRecipient'];
 	//		$sender = $this->settings['newCommentSender'];
